@@ -1,28 +1,44 @@
 <?php
-    require_once '../config/parameter.php';
-    require_once LAYOUT."header.php";
-    require_once LAYOUT."menu.php";
-
-    echo "<p>Hello World</p>";
-
-    $shipper = new staticShipper;
-
-    $qryShippers = $shipper->GetShippers();
+  require_once '../config/parameter.php';
+  require_once LAYOUT."header.php";
+  require_once LAYOUT."menu.php";
+  require_once CLASSES."shipper.php";
 ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
-</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Company Name</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<?php
+    try {
+      $shipper = new staticShipper;
+      $qryShippers = $shipper->GetShippers();
+
+      $seq = 0;
+    
+      if ($qryShippers) {
+        foreach ($qryShippers as $line) {
+          $seq++;
+          echo ("<tr><th scope='row'>". $seq ."</th>
+          <td>". $line['ShipperID'] ."</td>
+          <td>". $line['CompanyName'] ."</td>
+          <td>". $line['Phone'] ."</td></tr>");
+        }
+      }
+    } catch (PDOException $PDOe) {
+      echo 'SQL error :' . $PDOe->getMessage();
+    }
+?>
+
+  </tbody>
+</table>
 
 <?php
     require_once LAYOUT."footer.php";

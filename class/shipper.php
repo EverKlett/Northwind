@@ -1,4 +1,5 @@
 <?php
+    require_once CONFIG."connection.php";
     class shipper {
 
     }
@@ -6,9 +7,11 @@
     class staticShipper {
         public function GetShippers() {
             $conn = getConnection();
-            $sql = $conn->prepare("SELECT * FROM SHIPPERS");
+            $sql = "SELECT * FROM SHIPPERS";
             
-            return $sql->execute();
+            $qry = $conn->query($sql);
+
+            return $qry;
         }
     }
 ?>
