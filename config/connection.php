@@ -1,5 +1,5 @@
 <?php
-    function Connect() {
+    function getConnection() {
         $host = "localhost";
         $database = "Northwind";
         $user = "web";
@@ -9,6 +9,6 @@
         return $connection;
     }
     
-    $connection = Connect();
+    $connection = getConnection();
     var_dump($connection);
 ?>
