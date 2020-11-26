@@ -19,7 +19,7 @@
 <?php
     try {
       $shipper = new staticShipper;
-      $qryShippers = $shipper->GetShippers();
+      $qryShippers = $shipper->getShippers();
 
       $seq = 0;
     
