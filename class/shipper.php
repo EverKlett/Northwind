@@ -1,4 +1,5 @@
 <?php
+    require_once "../config/parameter.php";
     require_once CONFIG."connection.php";
     class shipper {
         private $ShipperID;
