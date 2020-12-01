@@ -3,14 +3,24 @@
     
     class shipper {
         private $ShipperID;
+        public $CompanyName;
+        public $Phone;
         
         function __construct($ID)
         {
             if (!is_int($ID)) {
-                throw new Exception("Error registering shipper", 1);
+                throw new Exception("Error creating shipper");
                 
             } else {
-                $this->$ShipperID = $ID;
+                $this->ShipperID = $ID;
+
+                $conn = getConnection();
+                $sql = "SELECT * FROM SHIPPERS WHERE SHIPPERID = {$this->ShipperID}";
+                $qry = $conn->query($sql);
+                $result = $qry->fetchAll();
+
+                $this->CompanyName = $result[0]['CompanyName'];
+                $this->Phone = $result[0]['Phone'];
             }
         }
     }
@@ -32,6 +42,12 @@
                 $sql = "INSERT INTO SHIPPERS (COMPANYNAME, PHONE) VALUES('{$prCompanyName}', '{$prPhone}')";
                 return $conn->query($sql);
             }
+        }
+
+        public function remove($prID) {
+            $conn = getConnection();
+            $sql = "DELETE FROM SHIPPERS WHERE SHIPPERID = {$prID}";
+            return $conn->query($sql);
         }
 
         public function getMaxID() {
