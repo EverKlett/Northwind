@@ -1,7 +1,6 @@
 <?php
   require_once 'config/parameter.php';
   require_once LAYOUT."header.php";
-  require_once LAYOUT."menu.php";
   require_once CLASSES."shipper.php";
 ?>
 
@@ -20,9 +19,23 @@
 
 <?php
     if(isset($_POST['register'])) {
+      try {
         $staticShipper = new staticShipper();
-        $staticShipper->insert([$_POST['CompanyName'],
-                                $_POST['Phone']]);
+        $staticShipper->insert(
+          $_POST['CompanyName'],
+          $_POST['Phone']);
+        
+        echo "<br>".
+        "<div class='alert alert-success' role='alert'>
+          Shipper successfully included!
+        </div>";
+      } catch (PDOException $e) {
+        echo "<br>".
+        "<div class='alert alert-danger' role='alert'>
+          Error including shipper: {$e->getMessage()}
+        </div>";
+      }
+        
     }
 
     require_once LAYOUT."footer.php";

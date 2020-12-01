@@ -1,7 +1,6 @@
 <?php
-  require_once 'config/parameter.php';
+  require_once "./config/parameter.php";
   require_once LAYOUT."header.php";
-  require_once LAYOUT."menu.php";
   require_once CLASSES."shipper.php";
 ?>
 
@@ -12,6 +11,7 @@
       <th scope="col">ID</th>
       <th scope="col">Company Name</th>
       <th scope="col">Phone</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +29,10 @@
           echo ("<tr><th scope='row'>". $seq ."</th>
           <td>". $line['ShipperID'] ."</td>
           <td>". $line['CompanyName'] ."</td>
-          <td>". $line['Phone'] ."</td></tr>");
+          <td>". $line['Phone'] ."</td>
+          <td>
+          <a href='./edt_shipper.php'>Edit</a>
+          <a href='./rem_shipper.php'>Remove</a></td></tr>");
         }
       }
     } catch (PDOException $PDOe) {
