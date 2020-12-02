@@ -4,7 +4,7 @@
     require_once CLASSES."shipper.php";
 
     try {
-        if (isset($_GET['ID'])) {
+        if (isset($_GET['ID']) && $_GET['ID'] > 0) {
             $shipper = new shipper((int)$_GET['ID']);
         } else {
             throw new Exception('Not defined shipper ID to remove.');

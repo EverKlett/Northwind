@@ -18,7 +18,6 @@
                 $sql = "SELECT * FROM SHIPPERS WHERE SHIPPERID = {$this->ShipperID}";
                 $qry = $conn->query($sql);
                 $result = $qry->fetchAll();
-
                 $this->CompanyName = $result[0]['CompanyName'];
                 $this->Phone = $result[0]['Phone'];
             }
