@@ -22,6 +22,19 @@
                 $this->Phone = $result[0]['Phone'];
             }
         }
+
+        public function update(array $prValues) {
+            $conn = getConnection();
+            $sql = "UPDATE SHIPPERS
+                       SET CompanyName = :CompanyName,
+                           Phone = :Phone
+                     WHERE SHIPPERID = :ShipperID";
+            $sttm = $conn->prepare($sql);
+
+            return $sttm->execute(array(':CompanyName' => $prValues[0],
+                                        ':Phone' => $prValues[1],
+                                        ':ShipperID' => $this->ShipperID));
+        }
     }
 
     class staticShipper {
