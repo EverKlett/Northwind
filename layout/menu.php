@@ -11,6 +11,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="reg_shipper.php">Shippers</a>
+          <a class="dropdown-item" href="reg_region.php">Regions</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -19,7 +20,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="qry_shipper.php">Shipper</a>
-        </d
+          <a class="dropdown-item" href="qry_region.php">Region</a>
+        </div>
     </ul>
   </div>
 </nav>
