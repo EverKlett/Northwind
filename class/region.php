@@ -2,7 +2,7 @@
     require_once CONFIG."connection.php";
     
     class region {
-        private $RegionID;
+        public $RegionID;
         public $RegionDescription;
         
         function __construct($ID)
