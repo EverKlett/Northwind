@@ -23,7 +23,7 @@
     <div class="form-row">
         <div class="form-group col-md-8">
             <label for="CompanyName">Company name</label>
-            <input type="text" class="form-control" id="CompanyName" aria-describedby="CompanyName" name="CompanyName" value="<?php echo $shipper->CompanyName ?>">
+            <input type="text" class="form-control" id="CompanyName" aria-describedby="CompanyName" name="CompanyName" value="<?php echo trim($shipper->CompanyName) ?>">
         </div>
         <div class="form-group col-md-4">
             <label for="Phone">Phone</label>

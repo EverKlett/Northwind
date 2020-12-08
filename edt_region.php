@@ -23,7 +23,7 @@
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="RegionDescription">Region description</label>
-            <input type="text" class="form-control" id="RegionDescription" aria-describedby="RegionDescription" name="RegionDescription" value="<?php echo $region->RegionDescription ?>">
+            <input type="text" class="form-control" id="RegionDescription" aria-describedby="RegionDescription" name="RegionDescription" value="<?php echo trim($region->RegionDescription) ?>">
         </div>
     </div>
     <button type="submit" class="btn btn-primary" name="confirm">Confirm editing</button>

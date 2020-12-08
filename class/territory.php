@@ -19,12 +19,13 @@
                 $qry = $conn->query($sql);
                 $result = $qry->fetchAll();
                 $this->TerritoryDescription = $result[0]['TerritoryDescription'];
+                $this->RegionID = $result[0]['RegionID'];
             }
         }
 
         public function update(array $prValues) {
             $conn = getConnection();
-            $sql = "UPDATE REGION
+            $sql = "UPDATE TERRITORIES
                        SET TERRITORYDESCRIPTION = :TerritoryDescription,
                            REGIONID = :RegionID
                      WHERE TERRITORYID = :TerritoryID";
