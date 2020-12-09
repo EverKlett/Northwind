@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if ((!isset($_SESSION['logged']))) {
+    //header('Location:index.php?error=true');
+    var_dump($_SESSION);
+  }
+?>
 <nav class="navbar navbar-dark bg-dark">
 <a class="navbar-brand" href="index.php">Northwind</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,3 +34,4 @@
     </ul>
   </div>
 </nav>
+    <div class="container">

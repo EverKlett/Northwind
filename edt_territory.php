@@ -1,6 +1,7 @@
 <?php
     require_once 'config/parameter.php';
     require_once LAYOUT."header.php";
+    require_once LAYOUT."menu.php";
     require_once CLASSES."territory.php";
     require_once CLASSES."region.php";
 
